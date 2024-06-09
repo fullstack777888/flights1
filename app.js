@@ -2,7 +2,8 @@ require('dotenv').config()
 const express = require('express');
 const cors = require('cors')
 const bodyParser = require('body-parser')
-const { getAllFlightsDetails } = require('./db/flights')
+
+const { getFlights , addFlight, updateFlight} = require('./controller/flights');
 
 const app = express()
 
@@ -53,15 +54,9 @@ app.post('/register', (req, res) => {
     }
 })
 
-app.get('/api/flights', async (req, res) => {
-    try {
-        const flights = await getAllFlightsDetails();
-        res.json(flights)
-    } catch (error) {
-        console.log(error)
-        res.status(500).json({ error: 'Internal Server Error' });
-    }
-})
+app.get('/api/flights', getFlights)
+app.post('/api/flights', addFlight)
+app.put('/api/flights', updateFlight)
 
 app.post('/', (req, res) => {
     console.log('hello from express post')
