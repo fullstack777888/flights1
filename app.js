@@ -26,6 +26,7 @@ const getAllFlightsFromMySQL = () => {
     const flights = [
         { airlineName: 'El Al', destination: 'Israel', arrivalTime: '10:00' },
         { airlineName: 'WizzAir', destination: 'NY', arrivalTime: '11:00' },
+        { airlineName: 'Lufthansa', destination: 'Dubai', arrivalTime: '13:00' },
         { airlineName: 'Lufthansa', destination: 'Dubai', arrivalTime: '13:00' }
     ]
     return flights
